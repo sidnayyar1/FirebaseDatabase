@@ -18,33 +18,34 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class Login_Form extends AppCompatActivity {
 
-    EditText txtemail,txtpassword;
+    EditText txtemail, txtpassword;
     Button btnlogin;
     private FirebaseAuth firebaseAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login__form);
         getSupportActionBar().setTitle("Login Form");
 
-        txtemail=(EditText)findViewById(R.id.username);
-        txtpassword=(EditText)findViewById(R.id.password);
-        btnlogin=(Button)findViewById(R.id.btnlogin);
+        txtemail = (EditText) findViewById(R.id.username);
+        txtpassword = (EditText) findViewById(R.id.password);
+        btnlogin = (Button) findViewById(R.id.btnlogin);
 
-firebaseAuth=FirebaseAuth.getInstance();
+        firebaseAuth = FirebaseAuth.getInstance();
         btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            String email=txtemail.getText().toString().trim();
-            String password=txtpassword.getText().toString().trim();
+                String email = txtemail.getText().toString().trim();
+                String password = txtpassword.getText().toString().trim();
 
-                if (TextUtils.isEmpty(email)){
-                    Toast.makeText(Login_Form.this,"please enter email",Toast.LENGTH_LONG).show();
-                return;
+                if (TextUtils.isEmpty(email)) {
+                    Toast.makeText(Login_Form.this, "please enter email", Toast.LENGTH_LONG).show();
+                    return;
                 }
-                if (TextUtils.isEmpty(password)){
-                    Toast.makeText(Login_Form.this,"please enter password",Toast.LENGTH_LONG).show();
-               return;
+                if (TextUtils.isEmpty(password)) {
+                    Toast.makeText(Login_Form.this, "please enter password", Toast.LENGTH_LONG).show();
+                    return;
                 }
 
 
@@ -53,9 +54,9 @@ firebaseAuth=FirebaseAuth.getInstance();
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
-
+                                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
                                 } else {
-
+                                    Toast.makeText(Login_Form.this, "Login failed or user not available", Toast.LENGTH_LONG).show();
                                 }
 
                                 // ...
@@ -63,15 +64,11 @@ firebaseAuth=FirebaseAuth.getInstance();
                         });
 
 
-
             }
         });
-
-
     }
 
-
-    public void btn_signup_Form(View view) {
-        startActivity(new Intent(getApplicationContext(),Signup_Form.class));
+        public void btn_signup_Form (View view){
+            startActivity(new Intent(getApplicationContext(), Signup_Form.class));
+        }
     }
-}
