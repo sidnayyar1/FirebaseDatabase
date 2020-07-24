@@ -112,8 +112,8 @@ if(password!=confirmPassword){
                                     }
                                 });
 
-
                                 } else {
+
 
                                 }
 

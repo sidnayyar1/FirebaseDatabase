@@ -19,7 +19,9 @@ import com.google.firebase.auth.FirebaseAuth;
 public class Login_Form extends AppCompatActivity {
 
     EditText txtemail, txtpassword;
+
     Button btnlogin;
+
     private FirebaseAuth firebaseAuth;
 
     @Override
@@ -72,6 +74,8 @@ public class Login_Form extends AppCompatActivity {
 
         public void btn_signup_Form (View view){
             startActivity(new Intent(getApplicationContext(), Signup_Form.class));
-        }
+
+    }
+
 
     }
