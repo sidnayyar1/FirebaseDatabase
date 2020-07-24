@@ -48,7 +48,9 @@ public class Login_Form extends AppCompatActivity {
                     return;
                 }
 
-
+                if(password.length()<6) {
+                    Toast.makeText(Login_Form.this,"Password is too short",Toast.LENGTH_LONG).show();
+                }
                 firebaseAuth.signInWithEmailAndPassword(email, password)
                         .addOnCompleteListener(Login_Form.this, new OnCompleteListener<AuthResult>() {
                             @Override
@@ -71,4 +73,5 @@ public class Login_Form extends AppCompatActivity {
         public void btn_signup_Form (View view){
             startActivity(new Intent(getApplicationContext(), Signup_Form.class));
         }
+
     }

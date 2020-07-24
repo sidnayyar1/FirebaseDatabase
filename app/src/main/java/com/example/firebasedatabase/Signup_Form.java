@@ -20,7 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class Signup_Form extends AppCompatActivity {
-EditText txtFullName,txtUserName,txtEmail,txtPassword;
+EditText txtFullName,txtUserName,txtEmail,txtPassword,txtConfirmpassword;
 Button btnRegister;
 RadioButton btnMale;
 RadioButton btnFemale;
@@ -39,6 +39,7 @@ DatabaseReference databaseReference;
         txtUserName=(EditText)findViewById(R.id.username);
         txtEmail=(EditText)findViewById(R.id.emailid);
         txtPassword=(EditText)findViewById(R.id.password);
+        txtConfirmpassword=(EditText)findViewById(R.id.confirmpassword);
         btnMale=(RadioButton)findViewById(R.id.radiobtnmale);
         btnFemale=(RadioButton)findViewById(R.id.radiobuttonfemale);
         btnRegister=(Button)findViewById(R.id.btnregister);
@@ -54,13 +55,20 @@ DatabaseReference databaseReference;
                 final String username = txtUserName.getText().toString();
                 final String email= txtEmail.getText().toString();
                 String password = txtPassword.getText().toString();
-
+                String confirmPassword = txtConfirmpassword.getText().toString();
                 if(btnMale.isChecked()){
                     gender = "Male";
                 }
                 if(btnFemale.isChecked()){
                     gender = "Female";
                 }
+if(txtPassword.length()<6) {
+    Toast.makeText(Signup_Form.this,"Password is too short",Toast.LENGTH_LONG).show();
+}
+if(password!=confirmPassword){
+    Toast.makeText(Signup_Form.this,"Please Enter same password on both fields",Toast.LENGTH_LONG).show();
+
+}
 
            if (TextUtils.isEmpty(email)){
                Toast.makeText(Signup_Form.this,"please enter email",Toast.LENGTH_LONG).show();
@@ -77,6 +85,10 @@ DatabaseReference databaseReference;
 
                 }
 
+                if (TextUtils.isEmpty(confirmPassword)){
+                    Toast.makeText(Signup_Form.this,"please enter password again",Toast.LENGTH_LONG).show();
+
+                }
                 firebaseAuth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(Signup_Form.this, new OnCompleteListener<AuthResult>() {
                             @Override
