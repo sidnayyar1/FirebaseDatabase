@@ -77,5 +77,8 @@ public class Login_Form extends AppCompatActivity {
 
     }
 
+    public void btn_LoginSkp_Form(View view) {
+        startActivity(new Intent(getApplicationContext(), PhoneVerification.class));
 
     }
+}
