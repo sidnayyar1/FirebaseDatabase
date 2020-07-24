@@ -3,6 +3,7 @@ package com.example.firebasedatabase;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -16,6 +17,7 @@ Button btnRegister;
 RadioButton btnMale;
 RadioButton btnFemale;
 DatabaseReference databaseReference;
+    String gender = "";
 //FirebaseDatabase firebaseDatabase;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,24 @@ DatabaseReference databaseReference;
         databaseReference=FirebaseDatabase.getInstance().getReference("Customer");
 
 
+        btnRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String fullname = txtFullName.getText().toString();
+                String username = txtUserName.getText().toString();
+                String email= txtEmail.getText().toString();
+                String password = txtPassword.getText().toString();
+
+                if(btnMale.isChecked()){
+                    gender = "Male";
+                }
+                if(btnFemale.isChecked()){
+                    gender = "Female";
+                }
+                
+            }
+        });
     }
 
 
