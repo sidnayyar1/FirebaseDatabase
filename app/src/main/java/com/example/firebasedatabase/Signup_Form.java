@@ -3,6 +3,7 @@ package com.example.firebasedatabase;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -49,9 +50,9 @@ DatabaseReference databaseReference;
             @Override
             public void onClick(View v) {
 
-                String fullname = txtFullName.getText().toString();
-                String username = txtUserName.getText().toString();
-                String email= txtEmail.getText().toString();
+                final String fullname = txtFullName.getText().toString();
+                final String username = txtUserName.getText().toString();
+                final String email= txtEmail.getText().toString();
                 String password = txtPassword.getText().toString();
 
                 if(btnMale.isChecked()){
@@ -81,6 +82,24 @@ DatabaseReference databaseReference;
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
+
+                                    customer information = new customer(
+                                            fullname,
+                                            username,
+                                            email,
+                                            gender
+                                    );
+
+                                FirebaseDatabase.getInstance().getReference("customer")
+                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                .setValue(information).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        Toast.makeText(Signup_Form.this,"registration complete",Toast.LENGTH_LONG).show();
+                                        startActivity(new Intent(getApplicationContext(),Login_Form.class));
+                                    }
+                                });
+
 
                                 } else {
 
