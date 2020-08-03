@@ -35,7 +35,7 @@ public class PhoneVerification extends AppCompatActivity {
         phoneVerifynum=(EditText)findViewById(R.id.phoneNumber);
         verifycode=(EditText)findViewById(R.id.verificationcode);
         phoneNumber=(Button)findViewById(R.id.btnphoneverifycode);
-        singin = (Button)findViewById(R.id.btnsignin);
+        singin = (Button)findViewById(R.id.skiploginbtn);
         firebaseAuth = FirebaseAuth.getInstance();
 
 
@@ -93,7 +93,7 @@ phoneVerifynum.requestFocus();
 
 
         PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                phone,        // Phone number to verify
+                "+1"+phone,        // Phone number to verify
                 60,                 // Timeout duration
                 TimeUnit.SECONDS,   // Unit of timeout
                 this,               // Activity (for callback binding)

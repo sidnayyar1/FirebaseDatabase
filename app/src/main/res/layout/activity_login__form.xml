@@ -70,11 +70,11 @@
         android:onClick="btn_signup_Form"/>
 
     <Button
-        android:layout_marginTop="30dp"
-        android:text="Skip Login"
-        android:layout_gravity="center"
+        android:id="@+id/skipLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="btn_LoginSkip_Form"
-        tools:ignore="OnClick" />
-   </LinearLayout>
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:onClick="SkipLogin"
+        android:text="Skip Login" />
+</LinearLayout>

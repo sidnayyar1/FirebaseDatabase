@@ -21,6 +21,7 @@ public class Login_Form extends AppCompatActivity {
     EditText txtemail, txtpassword;
 
     Button btnlogin;
+    Button btnskiplogin;
 
     private FirebaseAuth firebaseAuth;
 
@@ -33,8 +34,9 @@ public class Login_Form extends AppCompatActivity {
         txtemail = (EditText) findViewById(R.id.username);
         txtpassword = (EditText) findViewById(R.id.password);
         btnlogin = (Button) findViewById(R.id.btnlogin);
-
+        btnskiplogin = (Button)findViewById(R.id.skiploginbtn);
         firebaseAuth = FirebaseAuth.getInstance();
+
         btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,8 +79,10 @@ public class Login_Form extends AppCompatActivity {
 
     }
 
-    public void btn_LoginSkp_Form(View view) {
+    public void SkipLogin(View view) {
         startActivity(new Intent(getApplicationContext(), PhoneVerification.class));
 
     }
+
+
 }
