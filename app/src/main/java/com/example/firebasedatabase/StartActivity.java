@@ -19,7 +19,22 @@ public class StartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
     firebaseUser = FirebaseAuth.getInstance();
+
+
+    if(firebaseUser!= null){
+        Intent intent = new Intent(StartActivity.this,MainActivity.class);
+         startActivity(intent);
+         finish();
+
+
+    }
+
+
+
+
+
         register = findViewById(R.id.register);
+
         login = findViewById(R.id.login);
 
         login.setOnClickListener(new View.OnClickListener() {
