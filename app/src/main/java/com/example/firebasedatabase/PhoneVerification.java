@@ -39,14 +39,13 @@ public class PhoneVerification extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
 
 
-
-phoneNumber.setOnClickListener(new View.OnClickListener() {
+        phoneNumber.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
 sendVerificationCode();
     }
 });
-singin.setOnClickListener(new View.OnClickListener() {
+        singin.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
 
@@ -75,6 +74,7 @@ singin.setOnClickListener(new View.OnClickListener() {
                         }
                     }
                 });
+
     }
 
     private void sendVerificationCode(){

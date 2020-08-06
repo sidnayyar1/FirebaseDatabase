@@ -26,12 +26,7 @@ public class StartActivity extends AppCompatActivity {
          startActivity(intent);
          finish();
 
-
     }
-
-
-
-
 
         register = findViewById(R.id.register);
 

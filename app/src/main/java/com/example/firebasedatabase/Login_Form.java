@@ -60,7 +60,7 @@ public class Login_Form extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
-                                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                                    startActivity(new Intent(getApplicationContext(), MainScreen.class));
                                 } else {
                                     Toast.makeText(Login_Form.this, "Login failed or user not available", Toast.LENGTH_LONG).show();
                                 }

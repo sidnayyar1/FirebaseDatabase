@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="30dp"
+    android:background="@drawable/image123"
     tools:context=".Login_Form">
 
     <ImageView
@@ -18,14 +19,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:focusable="true"
+        android:textColor="@color/White"
         android:focusableInTouchMode="true"
-        android:textColorHint="@color/Grey"
+        android:textColorHint="@color/White"
         >
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="User Name"
+            android:hint="Email ID"
+            android:textStyle="bold"
+
             android:id="@+id/username"
             android:ems="10"
             android:inputType="text"
@@ -37,7 +41,7 @@
         android:layout_height="wrap_content"
         android:focusable="true"
         android:focusableInTouchMode="true"
-        android:textColorHint="@color/Grey"
+        android:textColorHint="@color/White"
         app:passwordToggleEnabled="true"
 
         >
@@ -46,7 +50,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password"
+            android:textStyle="bold"
             android:ems="10"
+            android:textColor="@color/White"
             android:id="@+id/password"
             android:inputType="textPassword"
             android:layout_marginTop="10dp"
@@ -69,12 +75,12 @@
         android:layout_height="wrap_content"
         android:onClick="btn_signup_Form"/>
 
-    <Button
-        android:id="@+id/skipLogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        android:onClick="SkipLogin"
-        android:text="Skip Login" />
+<!--    <Button-->
+<!--        android:id="@+id/skipLogin"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:layout_marginTop="30dp"-->
+<!--        android:onClick="SkipLogin"-->
+<!--        android:text="Skip Login" />-->
 </LinearLayout>

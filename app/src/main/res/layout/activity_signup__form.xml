@@ -39,7 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="User Name"
-            android:id="@+id/username"
+            android:id="@+id/username1"
             android:ems="10"
             android:inputType="text"
             android:layout_marginTop="10dp"
